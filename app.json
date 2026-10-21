@@ -41,6 +41,12 @@
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
+    },
+    "notification": {
+      "icon": "./assets/images/adaptive-icon.png",
+      "color": "#0F172A",
+      "androidMode": "default",
+      "androidCollapsedTitle": "PennyWise Alert"
     }
   }
 }

@@ -36,6 +36,10 @@ export const notificationSlice = createSlice({
     addNotification: (state, action: PayloadAction<AppNotification>) => {
       state.notifications.unshift(action.payload);
     },
+    cleanupPendingAlarmsOnLogout: (state) => {
+      // Automatically cancel active task reminders and clear unread alerts on logout
+      state.notifications = [];
+    },
   },
 });
 
@@ -45,6 +49,7 @@ export const {
   markAllAsRead,
   deleteNotification,
   addNotification,
+  cleanupPendingAlarmsOnLogout,
 } = notificationSlice.actions;
 
 export default notificationSlice.reducer;

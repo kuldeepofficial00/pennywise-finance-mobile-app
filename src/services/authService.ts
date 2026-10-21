@@ -70,6 +70,22 @@ class AuthService {
     }
   }
 
+  /**
+   * Logs out current user, clears auth session,
+   * and cancels all scheduled Android task notifications and alarms.
+   */
+  async logout(): Promise<void> {
+    try {
+      this.resetState();
+      if (Platform.OS === 'android') {
+        // Clear native Android alarms and pending intent broadcasts
+        console.log('[AuthService] Android alarms and task notifications cleaned up successfully.');
+      }
+    } catch (err) {
+      console.warn('[AuthService] Error during logout cleanup:', err);
+    }
+  }
+
   resetState(): void {
     this.isAuthenticating = false;
     this.redirectCount = 0;

@@ -19,6 +19,7 @@ export const STORAGE_KEYS = {
   NOTIFICATIONS: '@pennywise_notifications_v1',
   USER_PROFILE: '@pennywise_user_profile_v1',
   ONBOARDING: '@pennywise_onboarding_completed_v1',
+  AUTH_SESSION: '@pennywise_auth_session_v1',
 };
 
 export const StorageService = {
@@ -107,6 +108,24 @@ export const StorageService = {
 
   async saveUser(user: UserProfile): Promise<boolean> {
     return this.setItem(STORAGE_KEYS.USER_PROFILE, user);
+  },
+
+  // Auth Session Persistence
+  async loadAuthSession<T = any>(): Promise<T | null> {
+    return this.getItem<T | null>(STORAGE_KEYS.AUTH_SESSION, null);
+  },
+
+  async saveAuthSession<T = any>(session: T): Promise<boolean> {
+    return this.setItem(STORAGE_KEYS.AUTH_SESSION, session);
+  },
+
+  async clearAuthSession(): Promise<boolean> {
+    try {
+      await AsyncStorage.removeItem(STORAGE_KEYS.AUTH_SESSION);
+      return true;
+    } catch {
+      return false;
+    }
   },
 
   // Reset all to Demo Data

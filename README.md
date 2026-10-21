@@ -6,6 +6,35 @@ Designed with a commercial-grade fintech aesthetic (Deep Navy `#0F172A`, Emerald
 
 ---
 
+## 📸 Application Showcase
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" width="50%">
+        <b>🏠 Dashboard & Cash Flow</b><br/><br/>
+        <img src="./docs/screenshots/dashboard.jpg" width="320" alt="PennyWise Dashboard UI" />
+      </td>
+      <td align="center" width="50%">
+        <b>📊 Smart Category Budgets</b><br/><br/>
+        <img src="./docs/screenshots/budgets.jpg" width="320" alt="PennyWise Budgets UI" />
+      </td>
+    </tr>
+    <tr>
+      <td align="center" width="50%">
+        <b>📈 Financial Analytics & Outflows</b><br/><br/>
+        <img src="./docs/screenshots/analytics.jpg" width="320" alt="PennyWise Analytics UI" />
+      </td>
+      <td align="center" width="50%">
+        <b>🎯 Milestone Savings Goals</b><br/><br/>
+        <img src="./docs/screenshots/goals.jpg" width="320" alt="PennyWise Goals UI" />
+      </td>
+    </tr>
+  </table>
+</div>
+
+---
+
 ## 📱 Key Features
 
 - **🏠 Comprehensive Dashboard**:

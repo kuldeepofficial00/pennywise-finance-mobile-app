@@ -8,8 +8,10 @@ import {
   TouchableOpacity,
   Switch,
   Alert,
+  Linking,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { Strings } from '../../constants/STRINGS';
 import { useNavigation } from '@react-navigation/native';
 import { Colors } from '../../theme/colors';
 import { Typography } from '../../theme/typography';
@@ -163,6 +165,40 @@ export const ProfileScreen: React.FC = () => {
               trackColor={{ false: Colors.border, true: Colors.accent }}
             />
           </View>
+
+          <TouchableOpacity
+            style={styles.settingRow}
+            onPress={() => {
+              Alert.alert(
+                Strings.legal.privacyPolicy,
+                'PennyWise adheres to strict on-device data privacy principles. All transactions and balances are stored securely in local SQLite/AsyncStorage and are never transmitted to external cloud servers.',
+                [{ text: 'Close', style: 'cancel' }]
+              );
+            }}
+          >
+            <View style={styles.settingIconRow}>
+              <Ionicons name="shield-checkmark-outline" size={20} color={Colors.primary} />
+              <Text style={styles.settingLabel}>{Strings.legal.privacyPolicy}</Text>
+            </View>
+            <Ionicons name="chevron-forward" size={18} color={Colors.textMuted} />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.settingRow}
+            onPress={() => {
+              Alert.alert(
+                Strings.legal.termsOfService,
+                'PennyWise is an educational personal finance simulation tool. Balances and statements are for demonstration and portfolio management purposes.',
+                [{ text: 'Close', style: 'cancel' }]
+              );
+            }}
+          >
+            <View style={styles.settingIconRow}>
+              <Ionicons name="document-outline" size={20} color={Colors.primary} />
+              <Text style={styles.settingLabel}>{Strings.legal.termsOfService}</Text>
+            </View>
+            <Ionicons name="chevron-forward" size={18} color={Colors.textMuted} />
+          </TouchableOpacity>
         </View>
 
         {/* Danger Zone: Reset Data */}

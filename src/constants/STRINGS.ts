@@ -14,4 +14,10 @@ export const Strings = {
     goals: 'Goals',
     profile: 'Profile',
   },
+  legal: {
+    privacyPolicy: 'Privacy Policy',
+    privacyPolicyUrl: 'https://pennywise.financeflow.dev/privacy',
+    termsOfService: 'Terms of Service',
+    termsOfServiceUrl: 'https://pennywise.financeflow.dev/terms',
+  },
 };

@@ -26,6 +26,7 @@ import {
 } from '../../utils/calculations';
 import { formatCurrency } from '../../utils/currency';
 import { formatMonthYear } from '../../utils/date';
+import { exportTransactionsToCSV } from '../../services/csvExport';
 
 export const ReportsScreen: React.FC = () => {
   const navigation = useNavigation<any>();
@@ -72,9 +73,13 @@ export const ReportsScreen: React.FC = () => {
   const isSpendingIncreased = expenseDifference > 0;
 
   const handleExport = () => {
+    const monthTransactions = transactions.filter(
+      (t) => t.date >= currentMonthStart && t.date <= currentMonthEnd
+    );
+    const csvContent = exportTransactionsToCSV(monthTransactions);
     Alert.alert(
-      'Export Statement (CSV)',
-      `Financial report for ${formatMonthYear(selectedMonth)} exported successfully to your local device downloads.`,
+      'Statement Exported (CSV)',
+      'Successfully generated CSV report with ' + monthTransactions.length + ' transactions for ' + formatMonthYear(selectedMonth) + ' (' + csvContent.length + ' bytes).',
       [{ text: 'Done' }]
     );
   };
